@@ -1,0 +1,30 @@
+{% extends 'home/base_bootstrap.html' %}
+{% block content %}
+<h1>Autos List</h1>
+{% if autos %}
+<ul>
+    {% for auto in autos %}
+    <li> {{auto.nickname}} ({{auto.make}})
+    (<a href="{% url 'autos:updateautos' auto.id %}">Update</a> |
+    <a href="{% url 'autos:deleteauto' auto.id%}">Delete</a>)</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>
+    There are no autos in the library
+</p>
+{% endif %}
+{% if count < 1 %}
+<p>
+    Please add a make before you add an auto
+</p>
+{% else %}
+<p>
+    <a href="{% url 'autos:addauto' %}">Add an auto</a>
+</p>
+{% endif%}
+<p>
+    <a href="{% url 'autos:listmakes'%}">View makes</a> ({{count}}) |
+    <a href="{% url 'autos:addmakes' %}">Add a make</a>
+</p>
+{% endblock %}

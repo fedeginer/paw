@@ -1,0 +1,11 @@
+{% extends 'home/base_menu.html' %}
+{% block welcome %}
+<h1>Confirm delte</h1>
+{% endblock %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete.">
+    <input type="submit" value="Cancel" onclick="window.location.href='{% url 'ads:all' %}';return false;">
+</form>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'home/base_menu.html' %}
+{% block content %}
+    <h1>Welcome to {{ settings.APP_NAME }}</h1>
+    <p>
+    <li><a href="{% url 'ads:all'%}">Ads</a></li>
+    </p>
+{% endblock %}
